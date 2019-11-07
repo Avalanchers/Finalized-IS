@@ -1,0 +1,46 @@
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\bin\Debug\WpfApp1.exe.config
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\bin\Debug\WpfApp1.exe
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\bin\Debug\WpfApp1.pdb
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csprojAssemblyReference.cache
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\App.g.cs
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1.g.resources
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1.exe
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1.pdb
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\bin\Debug\Dapper.dll
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\bin\Debug\Dapper.xml
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\RoomEdit.g.cs
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\RoomEdit.baml
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\AddStudent.g.cs
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\MainMenu.g.cs
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\StudentEdit.g.cs
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\AddStudent.baml
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\MainMenu.baml
+C:\Users\Yousof\source\repos\WpfApp1\WpfApp1\obj\Debug\StudentEdit.baml
+F:\Kool 7ayaty\WpfApp1\WpfApp1\bin\Debug\WpfApp1.exe.config
+F:\Kool 7ayaty\WpfApp1\WpfApp1\bin\Debug\WpfApp1.exe
+F:\Kool 7ayaty\WpfApp1\WpfApp1\bin\Debug\WpfApp1.pdb
+F:\Kool 7ayaty\WpfApp1\WpfApp1\bin\Debug\Dapper.dll
+F:\Kool 7ayaty\WpfApp1\WpfApp1\bin\Debug\Dapper.xml
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csprojAssemblyReference.cache
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\AddStudent.g.cs
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\MainMenu.g.cs
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\RoomEdit.g.cs
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\StudentEdit.g.cs
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\App.g.cs
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\AddStudent.baml
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\MainMenu.baml
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\RoomEdit.baml
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\StudentEdit.baml
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\WpfApp1.g.resources
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\WpfApp1.exe
+F:\Kool 7ayaty\WpfApp1\WpfApp1\obj\Debug\WpfApp1.pdb

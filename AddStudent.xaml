@@ -1,0 +1,67 @@
+﻿<Window x:Class="WpfApp1.AddStudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="AddStudent" Height="500" Width="800">
+    <Grid>
+        <StackPanel Margin="0,0,-0.4,0.4">
+
+            <TextBlock Text="First Name" Margin="30,25,342,0"/>
+            <TextBox Name="First" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged_1"/>
+
+            <TextBlock Text="Last Name" Margin="34,10,357,0"/>
+            <TextBox Name="Last" Margin="120,-16,191,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged"/>
+
+            <TextBlock Text="Username" Margin="38,10,353,0"/>
+            <TextBox Name="Username" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged_2"/>
+
+            <TextBlock Text="Password" Margin="41,10,350,0"/>
+            <PasswordBox Name="Pass" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" PasswordChar="*" />
+
+            <TextBlock Text="Confirm Password" Margin="16,10,363,0"/>
+            <PasswordBox Name="confirm" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" PasswordChar="*" />
+
+            <TextBlock Text="E-Mail" Margin="45,10,350,0"/>
+            <TextBox Name="Email" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged_3"/>
+
+            <TextBlock Text="Faculty Name" Margin="30,10,361,0"/>
+            <TextBox Name="Faculty" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged_4"/>
+
+            <TextBlock Text="Phone Number" Margin="28,10,363,0"/>
+            <TextBox Name="Phone" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged_5"/>
+
+            <TextBlock Text="Building ID" Margin="38,10,353,0"/>
+            <ComboBox Name="Buildings" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Content=""></ComboBoxItem>
+                <ComboBoxItem Content=""></ComboBoxItem>
+                <ComboBoxItem Content=""></ComboBoxItem>
+                <ComboBoxItem Content=""></ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Text="Room ID" Margin="45,10,346,0"/>
+            <ComboBox Name="Rooms" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" SelectionChanged="ComboBox_SelectionChanged_1">
+                <!-- Here we get the rooms available from the database -->
+            </ComboBox>
+
+            <TextBlock Text="Amount Of Fees" Margin="27,10,364,0"/>
+            <TextBox Name="Fees" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged_6"/>
+
+            <TextBlock Text="Gender" Margin="45,10,419,0" Height="21"/>
+            <RadioButton Name="Male" Content="Male" Margin="123,-20,329,0" Height="20" Checked="RadioButton_Checked"/>
+            <RadioButton Name="Female" Content="Female" Margin="240,-20,207,0" Height="20" Checked="RadioButton_Checked_1" />
+
+
+            <Button Height="40" Width="100" Background="White" BorderThickness="0" BorderBrush="Transparent" Margin="0,12,0,0" Click="Button_Click">
+                <Button.Content>
+                    <Border CornerRadius="9" Height="25" Width="97" BorderBrush="Black" BorderThickness="1,1,1,1" Background="Azure">
+                        <TextBlock Text="Add User" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="23.2,4.2,23,0"/>
+                    </Border>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
