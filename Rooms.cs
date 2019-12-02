@@ -15,12 +15,18 @@ namespace WpfApp1
 
         public int Price { get; set; }
 
-        public string FullinfoR
-        {
-            get
-            {
-                return $" { Room_ID } { Number_Beds } { Price } ";
-            }
-        }
+        public int Vacant_Beds { get; set; }
+
+        public int Building_ID { get; set; }
+
+        public int Counter { get; set; }
+        
+        //public string FullinfoR
+        //{
+        //    get
+        //    {
+        //        return $" { Room_ID } { Number_Beds } { Price } ";
+        //    }
+        //}
     }
 }

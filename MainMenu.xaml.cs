@@ -24,24 +24,39 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        
+        private void AddStudent_Click(object sender, RoutedEventArgs e)
         {
-            AddStudent maro = new AddStudent();
-            maro.Show();
+            AddStudent Test = new AddStudent();
+            Test.Show();
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void EditRoom_Click(object sender, RoutedEventArgs e)
         {
-            StudentEdit man = new StudentEdit();
-            man.Show();
+            
+        }
+
+        private void EditStudent_Click(object sender, RoutedEventArgs e)
+        {
+            StudentEdit Test = new StudentEdit();
+            Test.Show();
             this.Close();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void DeleteStudent_Click(object sender, RoutedEventArgs e)
         {
-            RoomEdit mas = new RoomEdit();
-            mas.Show();
+            DeleteStudent Test = new DeleteStudent();
+            Test.Show();
+            this.Close();
+        }
+
+        private void DeleteRoom_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }

@@ -64,13 +64,27 @@
     </Compile>
     <Compile Include="Buildings.cs" />
     <Compile Include="DataAccess.cs" />
+    <Compile Include="DeleteStudent.xaml.cs">
+      <DependentUpon>DeleteStudent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helper.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Rooms.cs" />
     <Compile Include="StudentEdit.xaml.cs">
       <DependentUpon>StudentEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users.cs" />
     <Page Include="AddStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,6 +140,9 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WhatsApp Image 2019-11-08 at 11.24.29 PM.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

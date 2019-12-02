@@ -12,58 +12,80 @@ namespace WpfApp1
     {
 
         List<Users> TBUser = new List<Users>();
-        List<Rooms> TBRoom = new List<Rooms>();
+        List<Rooms>[] TBRoom = new List<Rooms>[50];
         List<Buildings> TBBuilding = new List<Buildings>();
-        public List<Users> GetUsers(string Username, int Password)
+        public Users GetUsers(string Username)
         {
-            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("Project")))
+            Users U = new Users();
+            //using (SqlConnection conn = new SqlConnection(PublicParameters.ConnectionString))
             //{
-            //    var output = connection.Query<Users>($"SELECT * FROM User WHERE Username = '{Username}' AND Password = {Password};").ToList();
-            //    return output;
+            //    using(SqlCommand comm = new SqlCommand("SELECT User_ID , First_Name , Last_Name , Facultyname , EMail , PhoneNum , Amount_Fees , Room_ID , Building_ID , Gender FROM [User] WHERE Username = @Username" , conn))
+            //    {
+            //        comm.Parameters.AddWithValue("@Username", Username);
+            //        //if(Username == null)
+            //        //{
+            //        //    unitspram.Value = DBNull.Value;
+            //        //}
+            //        conn.Open();
+            //        SqlDataReader rd = comm.ExecuteReader();
+            //        //comm.Parameters.AddWithValue("@Password", Password);
+                    
+            //        while(rd.Read())
+            //        {
+            //            U.User_ID = Convert.ToInt32(rd.GetValue(0).ToString());
+            //            U.FirstName = rd.GetValue(1).ToString();
+            //            U.LastName = rd.GetValue(2).ToString();
+            //            U.Facultyname = rd.GetValue(3).ToString();
+            //            U.EMail = rd.GetValue(4).ToString();
+            //            U.PhoneNum = Convert.ToInt32(rd.GetValue(5).ToString());
+            //            U.Amount_Fees = Convert.ToInt32(rd.GetValue(6).ToString());
+            //            U.Room_ID = Convert.ToInt32(rd.GetValue(7).ToString());
+            //            U.Building_ID = Convert.ToInt32(rd.GetValue(8).ToString());
+            //            U.Gender = rd.GetValue(9).ToString();              
+            //        }
+            //    }
             //}
-            using(SqlConnection conn = new SqlConnection(PublicParameters.ConnectionString))
+            return U;
+        }
+        public Rooms[] GetRooms(int Building_ID)
+        { 
+            Rooms[] R = new Rooms[50];
+            using (SqlConnection conn = new SqlConnection(PublicParameters.ConnectionString))
             {
-                using(SqlCommand comm = new SqlCommand("SELECT * FROM User WHERE Username = @Username AND Password = @Password;" , conn))
+                using (SqlCommand comm = conn.CreateCommand())
                 {
-                    if (comm.Connection.State == System.Data.ConnectionState.Closed)
-                        conn.Open();
+                    comm.CommandText = "SELECT COUNT(Room_ID) FROM Room WHERE Building_ID = @Building_ID";
+                    comm.Parameters.AddWithValue("@Building_ID", Building_ID);
+                    conn.Open();
+                    Int32 number = Convert.ToInt32(comm.ExecuteScalar());
+                    conn.Close();
+                    comm.CommandText = "SELECT * FROM Room WHERE Building_ID = @BuildingID";
+                    comm.Parameters.AddWithValue("@BuildingID", Building_ID);
+                    conn.Open();
                     SqlDataReader rd = comm.ExecuteReader();
-                    comm.Parameters.AddWithValue("@Username", Username);
-                    comm.Parameters.AddWithValue("@Password", Password);
-                    Users U = new Users();
+                    int x = 0;
                     while(rd.Read())
                     {
-                        U.FirstName = rd["First_Name"].ToString();
-                        U.LastName = rd["Last_Name"].ToString();
-                        U.Facultyname = rd["Facultyname"].ToString();
-                        U.EMail = rd["EMail"].ToString();
-                        U.PhoneNum = Convert.ToInt32(rd["PhoneNum"]);
-                        U.Amount_Fees = Convert.ToInt32(rd["Amount_Fees"]);
-                        U.Room_ID = Convert.ToInt32(rd["Room_ID"]);
-                        U.Building_ID = Convert.ToInt32(rd["Building_ID"]);
-                        U.Gender = rd["Gender"].ToString();
-                        TBUser.Add(U);
+                        R[x] = new Rooms();
+                        R[x].Counter = number; 
+                        R[x].Room_ID = Convert.ToInt32(rd["Room_ID"]);
+                        R[x].Number_Beds = Convert.ToInt32(rd["Number_Beds"]);
+                        R[x].Price = Convert.ToInt32(rd["Price"]);
+                        R[x].Vacant_Beds = Convert.ToInt32(rd["Vacant_Beds"]);
+                        R[x].Building_ID = Convert.ToInt32(rd["Building_ID"]);
+                        //TBRoom[x] = new List<Rooms>();
+                        //TBRoom[x].Insert(0, R);
+                        x++;
                     }
+                    conn.Close();
                 }
             }
-            return TBUser;
-        }
-        public List<Rooms> GetRooms(int Room_ID)
-        {
-            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("Project")))
-            //{
-            //    var output = connection.Query<Rooms>($"SELECT * FROM User WHERE Room_ID = {Room_ID} AND Vacant_Beds != 0;").ToList();
-            //    return output;
-            //}
+            
+            return R;
         }
 
         public List<Buildings> GetBuildings()
         {
-            //using (IDbConnection connection = new SqlConnection(Helper.CnnVal("Project")))
-            //{
-            //    var output = connection.Query<Buildings>($"SELECT * FROM Building").ToList();
-            //    return output;
-            //}
             Buildings B = new Buildings();
             using (SqlConnection conn = new SqlConnection(PublicParameters.ConnectionString))
             {
@@ -83,19 +105,49 @@ namespace WpfApp1
             return TBBuilding;
         }
 
-        public void InsertINTOUser(Users U)
+        public bool Login(string Username , int Password)
         {
-            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("Project")))
-            //{
-            //    SqlCommand insert = new SqlCommand("INSERT INTO User(Username,Password,First_Name,Last_Name,Facultyname,EMail,PhoneNum,Amount_Fees,Room_ID,Building_ID) VALUES ('" + Username + "'," + Password + ",'" + First_Name + "','" + Last_Name + "','" + Facultyname + "','" + EMail + "'," + PhoneNum + "," + Amount_Fees + "," + Room_ID + "," + Building_ID + ");");
-            //    insert.ExecuteNonQuery();
-            //}
+            using(SqlConnection conn = new SqlConnection(PublicParameters.ConnectionString))
+            {
+                using(SqlCommand comm = conn.CreateCommand())
+                {
+                    comm.CommandText = "SELECT * FROM [User] WHERE Username = @Username AND Password = @Password";
+                    comm.Parameters.AddWithValue("@Username", Username);
+                    comm.Parameters.AddWithValue("@Password", Password);
+                    conn.Open();
+                    DataSet ds = new DataSet();
+                    SqlDataAdapter da = new SqlDataAdapter(comm);
+                    da.Fill(ds);
+                    conn.Close();
+                    bool Successful = ((ds.Tables.Count > 0) && (ds.Tables[0].Rows.Count > 0));
+                    if (Successful)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+        }
+        public void InsertINTOUser(Users U , int VacantBeds)
+        {
             using (SqlConnection conn = new SqlConnection(PublicParameters.ConnectionString))
             {
+
                 using (SqlCommand comm = conn.CreateCommand())
                 {
-                    comm.CommandText = "INSERT INTO [User](Username,Password,Facultyname,EMail,PhoneNum,Amount_Fees,First_Name,Last_Name,Room_ID,Building_ID,Gender)" +
-                   "VALUES(@Username , @Password , @Facultyname , @EMail , @PhoneNum , @Amount_Fees , @First_Name , @Last_Name , @Room_ID , @Building_ID , @Gender);";
+                    VacantBeds -= 1;
+                    comm.CommandText = "UPDATE Room SET Vacant_Beds = @VacantBeds WHERE Room_ID = @RoomID";
+                    comm.Parameters.AddWithValue("@RoomID", U.Room_ID);
+                    comm.Parameters.AddWithValue("@VacantBeds", VacantBeds);
+                    conn.Open();
+                    comm.ExecuteNonQuery();
+                    conn.Close();
+                }
+                Rooms R = new Rooms();
+                using (SqlCommand comm = conn.CreateCommand())
+                {
+                    comm.CommandText = "INSERT INTO [User](User_ID,Username,Password,Facultyname,EMail,PhoneNum,Amount_Fees,First_Name,Last_Name,Room_ID,Building_ID,Gender)" +
+                   "VALUES(@UserID , @Username , @Password , @Facultyname , @EMail , @PhoneNum , @Amount_Fees , @First_Name , @Last_Name , @Room_ID , @Building_ID , @Gender);";
+                    comm.Parameters.AddWithValue("@UserID", U.User_ID);
                     comm.Parameters.AddWithValue("@Username", U.Username);
                     comm.Parameters.AddWithValue("@Password", U.Password);
                     comm.Parameters.AddWithValue("@Facultyname", U.Facultyname);
@@ -111,36 +163,77 @@ namespace WpfApp1
                     comm.ExecuteNonQuery();
                     conn.Close();
                 }
+                using(SqlCommand comm = conn.CreateCommand())
+                {
+                    comm.CommandText = "INSERT INTO Room_User(User_ID , Room_ID , First_Name , Last_Name , Facultyname)" +
+                        "VALUES(@User_ID , @Room_ID , @First_Name , @Last_Name , @Facultyname);";
+                    comm.Parameters.AddWithValue("@User_ID", U.User_ID);
+                    comm.Parameters.AddWithValue("@Room_ID", U.Room_ID);
+                    comm.Parameters.AddWithValue("@First_Name", U.FirstName);
+                    comm.Parameters.AddWithValue("@Last_Name", U.LastName);
+                    comm.Parameters.AddWithValue("@Facultyname", U.Facultyname);
+                    conn.Open();
+                    comm.ExecuteNonQuery();
+                    conn.Close();
+                }
             }
         }
-        public void UpdateRoom(int Price , int Room_ID)
+        public void UpdateRoom(int Price , int Room_ID , int VacantBeds)
         {
-            //try
-            //{
-            //    using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("Project")))
-            //    {
-            //        SqlCommand UpdateR = new SqlCommand("UPDATE Room r SET Price = " + Price + "WHERE r.Room_ID = " + Room_ID + ";");
-            //        UpdateR.ExecuteNonQuery();
-            //    }
-            //}
-            //catch (Exception e)
-            //{
-            //    throw e;
-            //}
+            using(SqlConnection conn = new SqlConnection(PublicParameters.ConnectionString))
+            {
+                using(SqlCommand comm = conn.CreateCommand())
+                {
+                    comm.CommandText = "UPDATE Room SET Price = @Price , Vacant_Beds = @VacantBeds WHERE Room_ID = @RoomID";
+                    comm.Parameters.AddWithValue("@RoomID", Room_ID);
+                    comm.Parameters.AddWithValue("@Price", Price);
+                    comm.Parameters.AddWithValue("@VacantBeds", VacantBeds);
+                    conn.Open();
+                    comm.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+        public void UpdateRoom_Bed(int Room_ID , List<Rooms> test)
+        {
+            using (SqlConnection conn = new SqlConnection(PublicParameters.ConnectionString))
+            {
+                
+            }
         }
         public void UpdateUser(int User_ID , string First_Name, string Last_Name, string Facultyname, string EMail, int PhoneNum, int Amount_Fees, int Room_ID, int Building_ID)
         {
-            //try
+            //using(SqlConnection conn = new SqlConnection(PublicParameters.ConnectionString))
             //{
-            //    using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("Project")))
+            //    using(SqlCommand comm = conn.CreateCommand())
             //    {
-            //        SqlCommand UpdateU = new SqlCommand("UPDATE User u SET u.First_Name = " + "'" + First_Name + "',u.Last_Name = '" + Last_Name + "',u.Facultyname = '" + Facultyname + "',EMail = '" + EMail + "',PhoneNum = " + PhoneNum + ",Amount_Fees = " + Amount_Fees + ",Room_ID = " + Room_ID + ",Building_ID = " + Building_ID + " WHERE User_ID = " + User_ID + ";");
-            //        UpdateU.ExecuteNonQuery();
+            //        comm.CommandText = "UPDATE User SET First_Name = @FirstName , Last_Name = @LastName , Facultyname = @Facultyname , EMail = @Email , PhoneNum = @PhoneNum , Amount_Fees = @AmountFees , Room_ID = @Room_ID , Building_ID = @Building_ID WHERE User_ID = @User_ID";
+            //        comm.Parameters.AddWithValue("@FirstName", First_Name);
+            //        comm.Parameters.AddWithValue("@LastName", Last_Name);
+            //        comm.Parameters.AddWithValue("@Facultyname", Facultyname);
+            //        comm.Parameters.AddWithValue("@Email", EMail);
+            //        comm.Parameters.AddWithValue("@PhoneNum", PhoneNum);
+            //        comm.Parameters.AddWithValue("@Amount_Fees", Amount_Fees);
+            //        comm.Parameters.AddWithValue("@Room_ID", Room_ID);
+            //        comm.Parameters.AddWithValue("@Building_ID", Building_ID);
+            //        conn.Open();
+            //        comm.ExecuteNonQuery();
+            //        conn.Close();
             //    }
             //}
-            //catch (Exception e)
+        }
+
+        public void DeleteUser(string Username)
+        {
+            //using(SqlConnection conn = new SqlConnection(PublicParameters.ConnectionString))
             //{
-            //    throw e;
+            //    using(SqlCommand comm = new SqlCommand("DELETE FROM [User] WHERE Username = @Username" , conn))
+            //    {
+            //        comm.Parameters.AddWithValue("@Username", Username);
+            //        conn.Open();
+            //        comm.ExecuteNonQuery();
+            //        conn.Close();
+            //    }
             //}
         }
     }

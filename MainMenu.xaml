@@ -5,40 +5,134 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainMenu" Height="450" Width="800">
-	<Grid>
-		<StackPanel>
+        Title="MainMenu" Height="550" Width="800"  WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,-22.4,0.4">
+        <Image Source="WhatsApp Image 2019-11-08 at 11.24.29 PM.jpeg" Stretch="UniformToFill" Margin="0,0,-0.4,0.4" />
+        <Label Content="Main Menu" Foreground="White" FontSize="50" HorizontalAlignment="Center" Margin="264,54,289,-55.6"/>
+        <Border Background="Transparent" CornerRadius="20" Margin="10,142,30,50.4">
+            <StackPanel Margin="20,20,20,-45.2">
 
-			<Button  Height="37" Width="110" Background="White" BorderThickness="0" BorderBrush="Transparent" Margin="14,30,319,0" Click="Button_Click">
-				<Border CornerRadius="9" Height="35" Width="107" BorderBrush="Black" BorderThickness="1,1,1,1" Background="Azure">
-					<TextBlock Text="Add User" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="22,4,22,3"/>
-				</Border>
-			</Button>
-
-			<Button   Height="37" Width="110" Background="White" BorderThickness="0" BorderBrush="Transparent" Margin="20,-38,0,0" Click="Button_Click_1">
-				<Border CornerRadius="9" Height="35" Width="107" BorderBrush="Black" BorderThickness="1,1,1,1" Background="Azure">
-					<TextBlock Text="Edit User" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="22,4,22,3"/>
-				</Border>
-			</Button>
-
-			<Button   Height="37" Width="110" Background="White" BorderThickness="0" BorderBrush="Transparent" Margin="342,-38,5,0">
-				<Border CornerRadius="9" Height="35" Width="107" BorderBrush="Black" BorderThickness="1,1,1,1" Background="Azure">
-					<TextBlock Text="Delete User" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="22,4,22,3"/>
-				</Border>
-			</Button>
-
-
-			<Button  Height="37" Width="110" Background="White" BorderThickness="0" BorderBrush="Transparent" Margin="130,27,275,0" Click="Button_Click_2">
-				<Border CornerRadius="9" Height="35" Width="107" BorderBrush="Black" BorderThickness="1,1,1,1" Background="Azure">
-					<TextBlock Text="Edit Room" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="22,4,22,3"/>
-				</Border>
-			</Button>
-
-			<Button  Height="37" Width="112" Background="White" BorderThickness="0" BorderBrush="Transparent" Margin="260,-37,66,0">
-				<Border CornerRadius="9" Height="35" Width="110" BorderBrush="Black" BorderThickness="1,1,1,1" Background="Azure">
-					<TextBlock Text="Delete Room" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,4,20,3"/>
-				</Border>
-			</Button>
-		</StackPanel>
-	</Grid>
+                <Button Style="{StaticResource BUTTONTEMPLATE}" Name="AddStudent" Content="Add Student" Margin="215,10,227,10" Background="#545d6a" Foreground="White" FontSize="18" Click="AddStudent_Click" Height="40">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Gray" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="#545d6a" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button Style="{StaticResource BUTTONTEMPLATE}" Name="EditRoom"  Content="Edit Room" Margin="215,10,227,10" Background="#545d6a" Foreground="White" FontSize="18" Click="EditRoom_Click" Height="39">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Gray" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="#545d6a" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button Style="{StaticResource BUTTONTEMPLATE}" Name="EditStudent"  Content="Edit Student" Margin="215,10,227,10" Background="#545d6a" Foreground="White" FontSize="18" Click="EditStudent_Click" Height="39">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Gray" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="#545d6a" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button  Style="{StaticResource BUTTONTEMPLATE}" Name="DeleteStudent"  Content="Delete Student" Margin="215,10,227,10" Background="#545d6a" Foreground="White" FontSize="18" Click="DeleteStudent_Click" Height="32">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Gray" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="#545d6a" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button Style="{StaticResource BUTTONTEMPLATE}" Name="DeleteRoom"  Content="Delete Room" Margin="215,10,227,10" Background="#545d6a" Foreground="White" FontSize="18" Click="DeleteRoom_Click" Height="37">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Gray" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="#545d6a" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button Style="{StaticResource BUTTONTEMPLATE}" Name="btnBack" Click="btnSubmit_Click" Content="Exit" Margin="479,20,50,10" Background="#545d6a" Foreground="White" FontSize="18" Height="32">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Gray" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="#545d6a" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
 </Window>

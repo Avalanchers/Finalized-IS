@@ -33,13 +33,6 @@ namespace WpfApp1
 
         public string Gender { get; set; }
 
-        //public string Fullinfo
-        //{
-        //    get
-        //    {
-        //        return $" { User_ID } { Username } { Password } { Name } { Facultyname } { EMail } { PhoneNum } { Amount_Fees } { Room_ID } ";
-        //    }
-        //}
     }
     public static class PublicParameters
     {

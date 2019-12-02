@@ -5,63 +5,90 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="AddStudent" Height="500" Width="800">
-    <Grid>
-        <StackPanel Margin="0,0,-0.4,0.4">
-
-            <TextBlock Text="First Name" Margin="30,25,342,0"/>
-            <TextBox Name="First" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged_1"/>
-
-            <TextBlock Text="Last Name" Margin="34,10,357,0"/>
-            <TextBox Name="Last" Margin="120,-16,191,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged"/>
-
-            <TextBlock Text="Username" Margin="38,10,353,0"/>
-            <TextBox Name="Username" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged_2"/>
-
-            <TextBlock Text="Password" Margin="41,10,350,0"/>
-            <PasswordBox Name="Pass" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" PasswordChar="*" />
-
-            <TextBlock Text="Confirm Password" Margin="16,10,363,0"/>
-            <PasswordBox Name="confirm" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" PasswordChar="*" />
-
-            <TextBlock Text="E-Mail" Margin="45,10,350,0"/>
-            <TextBox Name="Email" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged_3"/>
-
-            <TextBlock Text="Faculty Name" Margin="30,10,361,0"/>
-            <TextBox Name="Faculty" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged_4"/>
-
-            <TextBlock Text="Phone Number" Margin="28,10,363,0"/>
-            <TextBox Name="Phone" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged_5"/>
-
-            <TextBlock Text="Building ID" Margin="38,10,353,0"/>
-            <ComboBox Name="Buildings" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" SelectionChanged="ComboBox_SelectionChanged">
-                <ComboBoxItem Content=""></ComboBoxItem>
-                <ComboBoxItem Content=""></ComboBoxItem>
-                <ComboBoxItem Content=""></ComboBoxItem>
-                <ComboBoxItem Content=""></ComboBoxItem>
-            </ComboBox>
-
-            <TextBlock Text="Room ID" Margin="45,10,346,0"/>
-            <ComboBox Name="Rooms" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" SelectionChanged="ComboBox_SelectionChanged_1">
-                <!-- Here we get the rooms available from the database -->
-            </ComboBox>
-
-            <TextBlock Text="Amount Of Fees" Margin="27,10,364,0"/>
-            <TextBox Name="Fees" Margin="120,-16,190,0" RenderTransformOrigin="0.483,-0.639" Height="20" TextWrapping="NoWrap" TextChanged="TextBox_TextChanged_6"/>
-
-            <TextBlock Text="Gender" Margin="45,10,419,0" Height="21"/>
-            <RadioButton Name="Male" Content="Male" Margin="123,-20,329,0" Height="20" Checked="RadioButton_Checked"/>
-            <RadioButton Name="Female" Content="Female" Margin="240,-20,207,0" Height="20" Checked="RadioButton_Checked_1" />
-
-
-            <Button Height="40" Width="100" Background="White" BorderThickness="0" BorderBrush="Transparent" Margin="0,12,0,0" Click="Button_Click">
-                <Button.Content>
-                    <Border CornerRadius="9" Height="25" Width="97" BorderBrush="Black" BorderThickness="1,1,1,1" Background="Azure">
-                        <TextBlock Text="Add User" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="23.2,4.2,23,0"/>
-                    </Border>
-                </Button.Content>
-            </Button>
-        </StackPanel>
-
+        Title="Registration" Width="720" Height="844" FontSize="14" Background="#04c852"  WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,-0.4,-19.6">
+        <Image Source="WhatsApp Image 2019-11-08 at 11.24.29 PM.jpeg" Stretch="UniformToFill" Height="816" VerticalAlignment="Top" Margin="0,0,0,-16.4" />
+        <Border Background="Transparent" CornerRadius="20" Margin="20">
+            <StackPanel Margin="0,-18,-0.4,0.2">
+                <Label Content="Add Stdent" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+                <Separator></Separator>
+                <Label Content="Student_ID" Foreground="White"/>
+                <TextBox Name="txtStudentID" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,370.6,0" TextChanged="txtStudentID_TextChanged"/>
+                <Label Content="First Name" Foreground="White"/>
+                <TextBox Name="txtFirstname" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,370.6,0" TextChanged="txtFirstname_TextChanged"/>
+                <Label Content="Last Name" Foreground="White"/>
+                <TextBox Name="txtLastname" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,370.6,0" TextChanged="txtLastname_TextChanged"/>
+                <Label Content="Username" Foreground="White"/>
+                <TextBox Name="txtUsername" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,370.6,0" TextChanged="txtUsername_TextChanged"/>
+                <Label Content="Password" Foreground="White"/>
+                <PasswordBox Name="txtPassword" Background="#454d6a" Foreground="White" FontSize="18" Margin="0,0,370.6,0"/>
+                <Label Content="Confirm Password" Foreground="White"/>
+                <PasswordBox Name="txtConfirmPassword" Background="#454d6a" Foreground="White" FontSize="18" Margin="0,0,370.6,0"/>
+                <Label Content="E-mail" Foreground="White"/>
+                <TextBox Name="txtEmail" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,370.6,0" TextChanged="TxtEmail_TextChanged"/>
+                <Label Content="Faculty Name" Foreground="White"/>
+                <TextBox Name="txtFacultyname" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,370.6,0" TextChanged="txtFacultyname_TextChanged"/>
+                <Label Content="Phone Number" Foreground="White" Margin="0,0,-0.4,0"/>
+                <TextBox Name="txtPhoneNumber" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,370.6,0" TextChanged="txtPhoneNumber_TextChanged"/>
+                <Label Content="Building ID" Foreground="White"/>
+                <ComboBox Name="txtBuilding_ID" Background="Transparent" FontSize="18" Margin="0,0,459.6,0" SelectionChanged="ComboBox_SelectionChanged">
+                    <ComboBoxItem>Building 1</ComboBoxItem>
+                    <ComboBoxItem>Building 2</ComboBoxItem>
+                    <ComboBoxItem>Building 3</ComboBoxItem>
+                    <ComboBoxItem>Building 4</ComboBoxItem>
+                </ComboBox>
+                <Label Content="Room ID" Foreground="White" />
+                <ComboBox Name="txtRoom_ID" Background="#454d6a" FontSize="18" Margin="0,0,459.6,0" SelectionChanged="ComboBox_SelectionChanged_1"  >
+                    
+                </ComboBox>
+                <Label Content="Amount Of Fees" Foreground="White"/>
+                <TextBox Name="txtPrice" Background="#454d6a" Foreground="White" FontSize="18" Margin="0,0,563.6,0" TextChanged="txtPrice_TextChanged"/>
+                <TextBlock FontStyle="Italic" Foreground="Black"  FontSize="18" Text="Gender" Margin="10,10,418.6,0" Height="31"/>
+                <RadioButton  Foreground="White"  Content="Male" Margin="123,-20,329,0" Height="20" Checked="RadioButton_Checked_1"/>
+                <RadioButton Foreground="White" Content="Female" Margin="240,-20,207,0" Height="20" Checked="RadioButton_Checked" />
+                <Grid Margin="0,30,-0.4,0">
+                    <Button Style="{StaticResource BUTTONTEMPLATE}" x:Name="SaveEditStudent"  Content="Save" Margin="340,-11,181,14.8" Background="#545d6a" Foreground="White" FontSize="18" Click="SaveEditStudent_Click">
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Gray" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="#545d6a" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button  Style="{StaticResource BUTTONTEMPLATE}" x:Name="CancelEditStudent"  Content="Cancel" Margin="498,-11,19.6,14.4" Background="#545d6a" Foreground="White" FontSize="18" Click="CancelEditStudent_Click" Height="43">
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Gray" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="#545d6a" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

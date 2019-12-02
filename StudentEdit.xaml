@@ -5,59 +5,87 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="StudentEdit" Height="450" Width="800">
-	<Grid Margin="0,0,0,0">
-		<StackPanel Grid.Column="0" Margin="0 0 0 0">
-			<TextBlock Text="Enter Student ID" Margin="20 30 650 0"/>
-			<TextBox IsReadOnly="False" Background="#eee" Padding="2" Margin="20 0 650 0"/>
-		</StackPanel>
-		<StackPanel>
-			<TextBlock Text="Firstname" Margin="40 120 650 0"/>
-			<TextBox IsReadOnly="False" Background="#eee" Padding="2" Margin="40 5 650 0"/>
-		</StackPanel>
-		<StackPanel>
-			<TextBlock Text="Secondname" Margin="264,120,430.6,0" Height="35"/>
-			<TextBox IsReadOnly="False" Background="#eee" Padding="2" Margin="266,-15,412.6,0"/>
-		</StackPanel>
-		<StackPanel>
-			<TextBlock Text="E-mail" Margin="46,165,648.6,0" Height="35"/>
-			<TextBox IsReadOnly="False" Background="#eee" Padding="2" Margin="40,-15,650.6,0"/>
-		</StackPanel>
-		<StackPanel/>
-		<StackPanel/>
-		<StackPanel/>
-		<StackPanel/>
-		<StackPanel/>
-		<Grid>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="*"/>
-				<ColumnDefinition Width="*"/>
-				<ColumnDefinition Width="*"/>
-			</Grid.ColumnDefinitions>
+        Title="StudentEdit" Height="800" Width="800"  WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Image Source="WhatsApp Image 2019-11-08 at 11.24.29 PM.jpeg" Stretch="UniformToFill" Margin="0,0,-0.4,0.2" />
 
-			<Button Grid.Column="1" Content="Save" Margin="118.2,353,237.6,26" Grid.ColumnSpan="2"/>
-			<Button Grid.Column="2" Content="Cancel" Margin="87.4,353,42,26"/>
-			<PasswordBox Background="#eee" Padding="2" Margin="175.2,138,238.6,254" Grid.ColumnSpan="2" Grid.Column="1"/>
-			<TextBlock Text="Password" Margin="180.2,118,249.6,267" Grid.ColumnSpan="2" Grid.Column="1"/>
-			<TextBox IsReadOnly="False" Background="#eee" Padding="2" Margin="0.2,186,149.6,208" RenderTransformOrigin="3.445,-5.39" Grid.Column="1"/>
-			<TextBlock Text="Building ID" Margin="264,165,166.6,220" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
-				<TextBlock.RenderTransform>
-					<TransformGroup>
-						<ScaleTransform/>
-						<SkewTransform/>
-						<RotateTransform Angle="0.255"/>
-						<TranslateTransform/>
-					</TransformGroup>
-				</TextBlock.RenderTransform>
-			</TextBlock>
-			<TextBox IsReadOnly="False" Background="#eee" Padding="2" Margin="263,230,151.6,157" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2"/>
-			<TextBlock Text="Phone Number" Margin="4.2,210,161.6,175" Grid.Column="1"/>
-			<TextBox IsReadOnly="False" Background="#eee" Padding="2" Margin="40,230,109.8,157"/>
-			<TextBlock Text="User Name" Margin="43,208,122.8,177"/>
-			<TextBox IsReadOnly="False" Background="#eee" Padding="2" Margin="174.2,187,239.6,207" Grid.ColumnSpan="2" Grid.Column="1"/>
-			<TextBlock Text="Room ID" Margin="186.2,168,243.6,217" Grid.ColumnSpan="2" Grid.Column="1"/>
-		</Grid>
-		<TextBox IsReadOnly="False" Background="#eee" Padding="2" Margin="436,232,237.6,156" RenderTransformOrigin="0.5,0.5"/>
-		<TextBlock Text="Amount Of Pays" Margin="443,212,153.6,173"/>
-	</Grid>
+        <Border Background="Transparent" CornerRadius="20" Margin="0,0,3.6,-13.8" Grid.RowSpan="2">
+            <StackPanel Margin="10,10,10.4,0">
+                <Label Content="Edit Students" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+                <Separator></Separator>
+                <Label Content="Student_ID" Foreground="White"/>
+                <TextBox Name="txtStudentID" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,487.6,0" TextChanged="txtStudentID_TextChanged"/>
+                <Label Content="First Name" Foreground="White"/>
+                <TextBox Name="txtFirstname" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,487.6,0" TextChanged="txtFirstname_TextChanged"/>
+                <Label Content="Last Name" Foreground="White"/>
+                <TextBox Name="txtLastname" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,487.6,0" TextChanged="txtLastname_TextChanged"/>
+                <Label Content="Username" Foreground="White"/>
+                <TextBox Name="txtUsername" Background="#545d6a" IsReadOnly="True" Foreground="White" FontSize="18" Margin="0,0,487.6,0" TextChanged="txtUsername_TextChanged"/>
+                <Label Content="Password" Foreground="White"/>
+                <PasswordBox Name="txtPassword" Background="#454d6a" Foreground="White" FontSize="18" Margin="0,0,487.6,0"/>
+                <Label Content="E-mail" Foreground="White"/>
+                <TextBox Name="txtEmail" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,487.6,0" TextChanged="TxtEmail_TextChanged"/>
+                <Label Content="Faculty Name" Foreground="White"/>
+                <TextBox Name="txtFacultyname" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,487.6,0" TextChanged="txtFacultyname_TextChanged"/>
+                <Label Content="BuildingID" Foreground="White"/>
+                <TextBox Name="txtBuildingID" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,487.6,0" TextChanged="txtBuildingID_TextChanged"/>
+                <Label Content="RoomID" Foreground="White"/>
+                <TextBox Name="txtRoomID" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,487.6,0" TextChanged="txtRoomID_TextChanged"/>
+                <Label Content="Phone Number" Foreground="White"/>
+                <TextBox Name="txtPhone" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,487.6,0" TextChanged="txtPhone_TextChanged"/>
+                <Label Content="Amount Of Fees" Foreground="White"/>
+                <TextBox Name="txtFees" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,487.6,0" TextChanged="txtFees_TextChanged"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="759*"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Style="{StaticResource BUTTONTEMPLATE}" x:Name="SaveEditStudent"  Content="Save" Margin="355,67,211.2,9.6" Background="#545d6a" Foreground="White" FontSize="18" Click="SaveEditStudent_Click">
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Gray" 
+                                    Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="#545d6a" 
+                                    Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button Style="{StaticResource BUTTONTEMPLATE}" x:Name="CancelEditStudent"  Content="Cancel" Margin="553,67,10.2,9.6" Background="#545d6a" Foreground="White" FontSize="18" Click="CancelEditStudent_Click" Height="37">
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Gray" 
+                                    Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="#545d6a" 
+                                    Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
 </Window>
